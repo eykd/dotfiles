@@ -23,6 +23,13 @@
 		   (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 		   (global-set-key (kbd "<C-S-right>")  'buf-move-right)))
 
+   (:name feature-mode
+      :type git
+      :url "git://github.com/michaelklishin/cucumber.el.git"
+      :features feature-mode
+      :compile "feature-mode.el"
+      )
+
    (:name expand-region
 	  :type git
 	  :url "git://github.com/magnars/expand-region.el.git"
