@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: storylet
+# key: 
+# binding: direct-keybinding
+# expand-env: ((some-var some-value))
+# type: command
+# --
+lead = ''''''
+lead_verb = ""
+title = ''''''
+
+content = """
+
+
+"""
+
+entered_content = """"""
+
+footer = ""
