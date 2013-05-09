@@ -23,6 +23,9 @@
            (global-set-key (kbd "<C-S-left>")   'buf-move-left)
            (global-set-key (kbd "<C-S-right>")  'buf-move-right)))
 
+   (:name ethan-wspace
+      :after (lambda () (global-ethan-wspace-mode 1)))
+
    (:name feature-mode
       :type git
       :url "git://github.com/michaelklishin/cucumber.el.git"
@@ -51,10 +54,22 @@
       :after (lambda ()
            ;; when using AZERTY keyboard, consider C-x C-_
            (global-set-key (kbd "C-x C-/") 'goto-last-change)))
+
    (:name zencoding-mode
-	  :after (lambda ()
-		   (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
-		   ))
+      :after (lambda ()
+           (add-hook 'sgml-mode-hook 'zencoding-mode))) ;; Auto-start on any markup modes
+
+   (:name yasnippet
+      :url "git://github.com/capitaomorte/yasnippet.git"
+      :description "YASnippet is a template system for Emacs."
+      :type git
+      :features yasnippet
+      :compile "yasnippet.el"
+      :after (lambda ()
+               (setq yas-snippet-dirs
+                     '("~/.emacs.d/snippets"            ;; personal snippets
+                       ))
+               (yas-global-mode 1)))
    )
  )
 
@@ -105,7 +120,6 @@
 (column-number-mode 1)            ; column numbers in the mode line
 
 (tool-bar-mode -1)            ; no tool bar with icons
-
 
 ;; Tab width to 4
 (setq default-tab-width 2)
@@ -207,7 +221,6 @@
 
 ;; Whitespace mode
 (require 'whitespace)
-;; (setq whitespace-style '(face empty tabs lines-tail trailing))
 (setq whitespace-style '(face empty tabs trailing))
 (global-whitespace-mode 1)
 
@@ -217,9 +230,6 @@
 (setq fci-rule-color "darkblue")
 (setq fci-rule-column 80)
 (add-hook 'python-mode-hook 'fci-mode)
-
-;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-;; (global-fci-mode 1)
 
 ;; Autopair!
 (require 'autopair)
