@@ -121,7 +121,7 @@
 
 (tool-bar-mode -1)            ; no tool bar with icons
 
-;; Tab width to 4
+;; Tab width to 2
 (setq default-tab-width 2)
 
 (unless (string-match "apple-darwin" system-configuration)
@@ -272,3 +272,13 @@
                   '("\\.py\\'" flymake-pycheckers-init)))
 
 (add-hook 'find-file-hook 'flymake-find-file-hook)
+
+;; scala-mode
+(add-to-list 'load-path "~/.emacs.d/scala-mode")
+(require 'scala-mode)
+(setq yas/my-directory "~/.emacs.d/scala-mode/contrib/yasnippet/snippets")
+(yas/load-directory yas/my-directory)
+(add-hook 'scala-mode-hook
+          '(lambda ()
+             (yas/minor-mode-on)
+             ))
