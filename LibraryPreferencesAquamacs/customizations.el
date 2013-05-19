@@ -9,7 +9,7 @@
  '(auto-fill-function nil t)
  '(default-frame-alist (quote ((right-fringe . 0) (left-fringe . 4) (fringe) (internal-border-width . 0) (vertical-scroll-bars . right) (cursor-type . box) (menu-bar-lines . 1) (background-color . "#2e3436") (background-mode . dark) (border-color . "#888a85") (cursor-color . "#fce94f") (foreground-color . "#eeeeec") (mouse-color . "#8ae234"))))
  '(fill-column 80)
- '(fringe-indicator-alist (quote ((continuation nil nil) (truncation left-truncation right-truncation) (continuation left-continuation right-continuation) (overlay-arrow . right-triangle) (up . up-arrow) (down . down-arrow) (top top-left-angle top-right-angle) (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle) (top-bottom left-bracket right-bracket top-right-angle top-left-angle) (empty-line . empty-line) (unknown . question-mark))) t)
+ '(fringe-indicator-alist (quote ((continuation nil nil) (continuation nil nil) (truncation left-truncation right-truncation) (continuation left-continuation right-continuation) (overlay-arrow . right-triangle) (up . up-arrow) (down . down-arrow) (top top-left-angle top-right-angle) (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle) (top-bottom left-bracket right-bracket top-right-angle top-left-angle) (empty-line . empty-line) (unknown . question-mark))) t)
  '(global-hl-line-mode t)
  '(global-linum-mode t)
  '(ido-enable-tramp-completion nil)
@@ -24,11 +24,13 @@
  '(py-electric-comment-p t)
  '(py-load-pymacs-p t)
  '(py-prepare-autopair-mode-p t)
- '(py-set-fill-column-p t)
+ '(py-set-fill-column-p nil)
  '(py-tab-indents-region-p t)
  '(py-tab-shifts-region-p t)
+ '(rst-adornment-faces-alist (quote ((t . font-lock-keyword-face) (nil . font-lock-keyword-face) (5 . rst-level-5-face) (6 . rst-level-6-face))))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
- '(visual-line-mode nil t))
+ '(visual-line-mode t t)
+ '(word-wrap t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
