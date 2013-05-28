@@ -282,3 +282,5 @@
           '(lambda ()
              (yas/minor-mode-on)
              ))
+
+(add-to-list 'auto-mode-alist '("\\.story\\'" . markdown-mode))

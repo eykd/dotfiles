@@ -22,15 +22,11 @@
  '(py-closing-list-dedents-bos t)
  '(py-electric-comment-add-space-p t)
  '(py-electric-comment-p t)
- '(py-load-pymacs-p t)
  '(py-prepare-autopair-mode-p t)
- '(py-set-fill-column-p nil)
  '(py-tab-indents-region-p t)
- '(py-tab-shifts-region-p t)
  '(rst-adornment-faces-alist (quote ((t . font-lock-keyword-face) (nil . font-lock-keyword-face) (5 . rst-level-5-face) (6 . rst-level-6-face))))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(visual-line-mode t t)
- '(word-wrap t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
