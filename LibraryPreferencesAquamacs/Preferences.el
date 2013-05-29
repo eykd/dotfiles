@@ -9,3 +9,7 @@
 ;; Settings
 (tool-bar-mode -1)
 (set-fringe-style t)
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-tango)
