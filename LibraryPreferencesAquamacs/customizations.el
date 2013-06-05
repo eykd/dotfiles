@@ -34,3 +34,4 @@
   ;; If there is more than one, they won't work right.
  '(rst-mode-default ((t (:inherit text-mode-default :height 130 :family "Menlo"))) t)
  '(text-mode-default ((t (:inherit autoface-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 130 :width normal :family "Menlo")))))
+)
