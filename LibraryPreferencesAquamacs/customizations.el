@@ -27,6 +27,7 @@
  '(rst-adornment-faces-alist (quote ((t . font-lock-keyword-face) (nil . font-lock-keyword-face) (5 . rst-level-5-face) (6 . rst-level-6-face))))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(visual-line-mode t t)
+)
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -34,4 +35,3 @@
   ;; If there is more than one, they won't work right.
  '(rst-mode-default ((t (:inherit text-mode-default :height 130 :family "Menlo"))) t)
  '(text-mode-default ((t (:inherit autoface-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 130 :width normal :family "Menlo")))))
-)
