@@ -28,6 +28,7 @@
  '(py-prepare-autopair-mode-p t)
  '(py-tab-indents-region-p t)
  '(rst-adornment-faces-alist (quote ((t . font-lock-keyword-face) (nil . font-lock-keyword-face) (5 . rst-level-5-face) (6 . rst-level-6-face))))
+ '(size-indication-mode t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(visual-line-mode t t))
 (custom-set-faces
