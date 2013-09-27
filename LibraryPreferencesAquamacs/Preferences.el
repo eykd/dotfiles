@@ -13,3 +13,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-tango)
+
+(setq rnc-enable-flymake t
+      rnc-jing-jar-file (expand-file-name "/usr/local/Cellar/jing/20091111/libexec/bin/jing.jar")
+)
