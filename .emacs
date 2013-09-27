@@ -23,6 +23,17 @@
       :compile "feature-mode.el"
       )
 
+   (:name rnc-mode
+      :type git
+      :url "git://github.com/TreeRex/rnc-mode.git"
+      :features rnc-mode
+      :compile "rnc-mode.el"
+      :after (lambda ()
+							 (autoload 'rnc-mode "rnc-mode")
+							 (add-to-list 'auto-mode-alist '("\\.rnc\\'" . rnc-mode))
+							 )
+      )
+
    (:name smex                ; a better (ido like) M-x
       :after (lambda ()
            (setq smex-save-file "~/.emacs.d/.smex-items")
