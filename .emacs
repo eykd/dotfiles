@@ -207,3 +207,18 @@
 	(add-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
 	;; Since we killed it, don't let caller do that.
 	nil)
+
+;; Flymake+pyflakes
+(when (load "flymake" t)
+         (defun flymake-pycheckers-init ()
+           (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                              'flymake-create-temp-inplace))
+              (local-file (file-relative-name
+                           temp-file
+                           (file-name-directory buffer-file-name))))
+             (list (expand-file-name "~/bin/pycheckers") (list local-file))))
+
+         (add-to-list 'flymake-allowed-file-name-masks
+                  '("\\.py\\'" flymake-pycheckers-init)))
+
+(add-hook 'find-file-hook 'flymake-find-file-hook)
