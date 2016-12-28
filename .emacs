@@ -29,10 +29,17 @@
       :features rnc-mode
       :compile "rnc-mode.el"
       :after (lambda ()
-							 (autoload 'rnc-mode "rnc-mode")
-							 (add-to-list 'auto-mode-alist '("\\.rnc\\'" . rnc-mode))
-							 )
+  						 (autoload 'rnc-mode "rnc-mode")
+  						 (add-to-list 'auto-mode-alist '("\\.rnc\\'" . rnc-mode))
+  						 )
       )
+
+   (:name haxe-mode
+       :description "Haxe mode for emacs"
+       :type hg
+       :url "https://bitbucket.org/jpsecher/haxe-mode"
+       :load "haxe-mode.el"
+       :features haxe-mode)
 
    (:name smex                ; a better (ido like) M-x
       :after (lambda ()
@@ -66,14 +73,12 @@
    color-theme          ; nice looking emacs
    color-theme-tango    ; check out color-theme-solarized
    el-get               ; el-get is self-hosting
-;;    escreen              ; screen for emacs, C-\ C-h
    fill-column-indicator; show a vertical line at 80 columns
-;;    fuzzy-format         ; take a neutral stance in the war of tabs and spaces
-;;    iy-go-to-char        ; https://github.com/emacsmirror/iy-go-to-char
+   ;rainbow-identifiers
    switch-window        ; takes over C-x o
-;;    python-mode          ; just like it says
    textmate             ; textmate-mode!
-   whitespace           ; whitespace tricks
+   ;whitespace           ; whitespace tricks
+   yaml-mode
    zencoding-mode       ; http://www.emacswiki.org/emacs/ZenCoding
    )
  )
@@ -155,18 +160,18 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Whitespace mode
-(require 'whitespace)
-(setq whitespace-style '(face empty tabs trailing))
-(global-whitespace-mode 1)
-(defadvice whitespace-cleanup (around whitespace-cleanup-indent-tab
-                                      activate)
-  "Fix whitespace-cleanup indent-tabs-mode bug"
-  (let ((whitespace-indent-tabs-mode indent-tabs-mode)
-        (whitespace-tab-width tab-width))
-    ad-do-it))
-(defun my-tabs-makefile-hook ()
-  (setq indent-tabs-mode t))
-(add-hook 'makefile-mode-hook 'my-tabs-makefile-hook)
+;; (require 'whitespace)
+;; (setq whitespace-style '(face empty tabs trailing))
+;; (global-whitespace-mode 1)
+;; (defadvice whitespace-cleanup (around whitespace-cleanup-indent-tab
+;;                                       activate)
+;;   "Fix whitespace-cleanup indent-tabs-mode bug"
+;;   (let ((whitespace-indent-tabs-mode indent-tabs-mode)
+;;         (whitespace-tab-width tab-width))
+;;     ad-do-it))
+;; (defun my-tabs-makefile-hook ()
+;;   (setq indent-tabs-mode t))
+;; (add-hook 'makefile-mode-hook 'my-tabs-makefile-hook)
 
 ;; Add a column marker at column 80 in python
 (require 'fill-column-indicator)
@@ -182,6 +187,7 @@
 (add-to-list 'auto-mode-alist '("\\.story\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
 
 
 ;; If the *scratch* buffer is killed, recreate it automatically
@@ -222,3 +228,7 @@
                   '("\\.py\\'" flymake-pycheckers-init)))
 
 (add-hook 'find-file-hook 'flymake-find-file-hook)
+
+(require 'uniquify)
+(setq
+  uniquify-buffer-name-style 'forward)

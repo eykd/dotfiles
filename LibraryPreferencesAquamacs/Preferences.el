@@ -4,16 +4,15 @@
 ;; evaluating this file and print errors in the *Messags* buffer.
 ;; Use this file in place of ~/.emacs (which is loaded as well.)
 
-(server-start)
+;; (server-start)
 
 ;; Settings
 (tool-bar-mode -1)
-(set-fringe-style t)
 
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-tango)
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; (color-theme-tango)
 
-(setq rnc-enable-flymake t
-      rnc-jing-jar-file (expand-file-name "/usr/local/Cellar/jing/20091111/libexec/bin/jing.jar")
-)
+;; (setq rnc-enable-flymake t
+;;       rnc-jing-jar-file (expand-file-name "/usr/local/Cellar/jing/20091111/libexec/bin/jing.jar")
+;; )
