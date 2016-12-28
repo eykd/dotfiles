@@ -1,0 +1,12 @@
+session_name: growcal
+start_directory: ~/code/py/growcal
+windows:
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      -
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - ipython

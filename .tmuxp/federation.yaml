@@ -1,0 +1,12 @@
+session_name: federation
+start_directory: ~/Crossway/federation
+windows:
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      -
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - ipython

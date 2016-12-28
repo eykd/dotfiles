@@ -1,0 +1,12 @@
+session_name: horde
+start_directory: ~/code/horde
+windows:
+  - window_name: bash
+    window_index: 0
+    focus: true
+    panes:
+      - cd .
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - cd . && ipython

@@ -1,0 +1,108 @@
+export GOPATH=$HOME/code/go
+
+PATH=/Users/deyk/bin:/usr/local/bin:/usr/local/sbin:$PATH
+PATH=/usr/local/texlive/2011/bin/x86_64-darwin:$PATH
+PATH=/usr/local/share/npm/bin:$PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/code/js/devkit/bin # basil for GameClosure
+PATH=$PATH:$GOPATH/bin
+PATH=$PATH:/usr/local/opt/go/libexec/bin
+PATH=/usr/local/p/versions/python:$PATH
+export PATH
+
+# Set up pyenv
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PYENV_VERSION=""
+
+# Set up Homebrew autocompletion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+complete -C aws_completer aws
+
+export EDITOR=emacsclient
+
+export HOMEBREW_GITHUB_API_TOKEN="80194a0cea1edc55d0486b33c5b0d01ce312c432"
+
+alias ls='ls -FG'
+alias ssh="ssh -C"
+alias lockscreen="/System/Library/CoreServices/\"Menu Extras\"/User.menu/Contents/Resources/CGSession -suspend"
+alias stree='open -a SourceTree'
+alias flushdns='sudo killall -HUP mDNSResponder'
+alias bfg='java -jar ~/bfg.jar'
+alias md5sum='md5 -q'
+alias py3='pyenv global 3.5 2.7 2.6'
+alias py2='pyenv global 2.7 3.5 2.6'
+
+startup() {
+    tmux attach -t $1 || tmux new -s $1
+}
+
+eval "$(_TMUXP_COMPLETE=source tmuxp)"
+
+
+pidportfunction() {
+    lsof -n -i4TCP:$1 | grep LISTEN
+}
+
+alias pidport=pidportfunction
+
+has_virtualenv() {
+    if [ -e .venv ]; then
+        workon `cat .venv`
+    fi;
+    if [ -e bin/activate ]; then
+        source bin/activate
+    fi;
+    if [ -e venv/bin/activate ]; then
+        source venv/bin/activate
+    fi;
+}
+export -f has_virtualenv
+
+manp() {
+    man -t "${1}" | open -f -a '/Applications/Preview.app'
+}
+
+source ~/.bash_prompt
+
+
+# Virtualenvwrapper settings
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/code/py
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+export VIRTUALENV_USE_DISTRIBUTE=false
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+source /usr/local/bin/virtualenvwrapper.sh
+
+function cd_extended () {
+    builtin cd "$@" && has_virtualenv
+}
+alias cd='cd_extended $@'
+
+alias ring='say Ring.'
+alias beep='say Beep.'
+alias done='say Done.'
+alias success='say Success.'
+alias fail='say Fail.'
+alias failed='say Failed.'
+alias check='time $@ && say "Everything completed successfully." || say "Oh no, something went wrong."'
+alias flushdns='sudo discoveryutil udnsflushcaches'
+
+export NODE_PATH=/usr/local/lib/node_modules
+
+# RVM Path (Ruby Version Management):
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# AWS configuration.
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
+export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.4.2.2/jars"
+
+export URBIT_HOME="$HOME/code/urbit/urb"
+export LESS="-R"
+
+echo "Sourced ~/.bash_commonrc!"

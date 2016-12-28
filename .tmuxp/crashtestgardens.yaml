@@ -1,0 +1,16 @@
+session_name: crashtestgardens
+start_directory: ~/code/html/crashtestgardens.us
+windows:
+  - window_name: server
+    window_index: 0
+    panes:
+      - lektor server
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      -
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - ipython
