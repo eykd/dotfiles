@@ -1,0 +1,70 @@
+# .( screenrc ). for _why :: * supports xterm/rxvt titles
+#                            * default encoding is utf-8 (i use urxvt with this)
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+
+autodetach            on
+#crlf                  off
+#deflogin              off
+hardcopy_append       on
+
+chdir /home/deyk
+
+startup_message       off
+vbell                 off
+
+defscrollback         10000
+silencewait           15
+
+#termcapinfo xterm*|Eterm|mlterm|rxvt 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+defhstatus "$USER@ H | #  |  t"
+hardstatus off
+
+activity "%c activity -> %n%f %t"
+bell "%c bell -> %n%f %t^G"
+vbell_msg " *beep* "
+#caption always " %m%d %c |  %w"
+
+#bind ~ activity       "%c activity -> %n%f %t"
+#bind * activity       "%c activity -> %n%f %t"
+
+shell -$SHELL
+
+# Pretty status bar at the bottom.
+#caption always "%m/%d/%y %0c%{=b kg}  %l  %{=r gk}%-w%{=b wb}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
+caption always "%m/%d/%y %0c  %l  %-w%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
+
+# Let's remove some dangerous key bindings ...
+  bind k
+  bind ^k
+  bind .
+#  bind ^\
+#  bind \\
+  bind ^h
+  bind h
+
+# ... and make them better.
+  bind 'K' kill
+#  bind 'I' login on
+#  bind 'O' login off
+  bind '}' history
+
+# Use C-z as the escape sequence, instead of C-a.
+# C-a and emacs don't get along.
+# At all.
+escape ^ll
+
+# Make shift-PgUp and shift-PgDn work like they do in xterm.  (Note that this
+# requires xterm to be configured to pass those keys through, and not try to
+# act on them itself.)
+#bindkey "^[[5;2~" eval "copy" "stuff ^u"
+#bindkey -m "^[[5;2~" stuff ^u
+#bindkey -m "^[[6;2~" stuff ^dstartup_message off
+
+screen  6 bash
+screen  7 bash
+screen  8 bash
+screen  9 bash
+screen  0 bash
+
+select 7
