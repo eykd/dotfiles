@@ -1,12 +1,12 @@
-session_name: glyph
-start_directory: ~/Crossway/glyph
+session_name: palace
+start_directory: ~/code/py/palace
 windows:
   - window_name: bash
     window_index: 2
     focus: true
     panes:
-      -
+      - cd .
   - window_name: ipython
     window_index: 8
     panes:
-      - ipython
+      - cd . && ./manage.py shell_plus

@@ -1,8 +1,7 @@
-session_name: kardashev
-start_directory: ~/code/py/kardashev
+session_name: aurelian
+start_directory: ~/code/aurelian
 windows:
-  - window_name: bash
-    window_index: 2
+  - window_index: 2
     focus: true
     panes:
       - cd .

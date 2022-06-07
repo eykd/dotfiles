@@ -1,0 +1,24 @@
+session_name: steelmountain
+start_directory: ~/code/py/steelmountain
+windows:
+  - window_name: server
+    window_index: 0
+    panes:
+      - cd . && ./runserver.sh
+  - window_name: tests
+    window_index: 1
+    panes:
+      - cd . && ./watchtests.sh
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      - cd .
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - cd . && ./runshell.sh
+  - window_name: stackery
+    window_index: 9
+    panes:
+      - cd . && stackery edit

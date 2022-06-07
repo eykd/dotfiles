@@ -1,12 +1,12 @@
-session_name: skyhook
-start_directory: ~/Crossway/skyhook
+session_name: hermes
+start_directory: ~/code/py/hermes
 windows:
   - window_name: bash
     window_index: 2
     focus: true
     panes:
-      -
+      - cd .
   - window_name: ipython
     window_index: 8
     panes:
-      - ipython
+      - cd . && ipython

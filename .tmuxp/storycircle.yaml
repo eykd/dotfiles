@@ -1,8 +1,8 @@
-session_name: horde
-start_directory: ~/code/horde
+session_name: storycircle
+start_directory: ~/code/py/storycircle
 windows:
   - window_name: bash
-    window_index: 0
+    window_index: 2
     focus: true
     panes:
       - cd .

@@ -1,0 +1,16 @@
+session_name: botwars
+start_directory: ~/code/py/botwars
+windows:
+  - window_name: tests
+    window_index: 1
+    panes:
+      - cd . && ./watchtests.sh
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      - cd .
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - cd . && ./runshell.sh

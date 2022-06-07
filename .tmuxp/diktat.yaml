@@ -1,0 +1,20 @@
+session_name: diktat
+start_directory: ~/code/py/diktat
+windows:
+  - window_name: server
+    window_index: 0
+    panes:
+      - cd . && ./manage.py runserver_plus 9000
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      - cd .
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - cd . && ./manage.py shell_plus
+  - window_name: mailhog
+    window_index: 9
+    panes:
+      - mailhog

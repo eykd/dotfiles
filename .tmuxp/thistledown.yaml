@@ -1,5 +1,5 @@
-session_name: kardashev
-start_directory: ~/code/py/kardashev
+session_name: thistledown
+start_directory: ~/code/py/thistledown
 windows:
   - window_name: bash
     window_index: 2

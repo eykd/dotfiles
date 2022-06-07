@@ -1,14 +1,14 @@
-session_name: crashtestgardens
-start_directory: "~/Dropbox/to David/Crash Test Gardens/jig-crashtestgardens.us/"
+session_name: storypatron
+start_directory: ~/code/py/storypatron
 windows:
-  - window_name: server
+  - window_name: bash
     window_index: 0
     panes:
-      - cd . && jiggity serve
+      - cd . && ./manage.py runserver_plus 0.0.0.0:8000
   - window_name: bash
     window_index: 1
     panes:
-      - cd .
+      - cd ~/code/salt/storypatron-salt
   - window_name: bash
     window_index: 2
     focus: true
@@ -17,4 +17,4 @@ windows:
   - window_name: ipython
     window_index: 8
     panes:
-      - cd . && ipython
+      - cd . && ./manage.py shell_plus

@@ -1,12 +1,12 @@
-session_name: zephyr
-start_directory: ~/Crossway/zephyr
+session_name: ravel
+start_directory: ~/code/py/ravel
 windows:
   - window_name: bash
     window_index: 2
     focus: true
     panes:
-      -
+      - cd .
   - window_name: ipython
     window_index: 8
     panes:
-      - ipython
+      - cd . && ipython

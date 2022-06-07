@@ -1,0 +1,16 @@
+session_name: yearsofgrass
+start_directory: ~/code/html/yearsofgrass
+windows:
+  - window_name: bash
+    window_index: 0
+    panes:
+      - cd . && hugo server --buildDrafts --port 1314
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      - cd .
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - cd .

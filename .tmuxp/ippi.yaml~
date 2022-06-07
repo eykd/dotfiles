@@ -1,12 +1,12 @@
-session_name: federation
-start_directory: ~/Crossway/federation
+session_name: ippi
+start_directory: ~/code/py/ippi
 windows:
   - window_name: bash
     window_index: 2
     focus: true
     panes:
-      -
+      - cd .
   - window_name: ipython
     window_index: 8
     panes:
-      - ipython
+      - cd . && ipython

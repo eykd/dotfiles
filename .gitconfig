@@ -1,0 +1,115 @@
+[user]
+	name = eykd
+	email = david@eykd.net
+[core]
+	editor = emacsclient
+	autocrlf = input
+	excludesfile = /Users/deyk/.gitignore_global
+[merge]
+	# tool = diffmerge
+	# tool = diffuse
+	tool = opendiff
+[alias]
+	co = checkout
+	ci = commit
+	stat = status
+	cp = cherry-pick
+	st = status -s
+	cl = clone
+	br = branch
+	dw = diff --word-diff
+	dc = diff --cached
+	dsf = "!git diff --color $@ | diff-so-fancy" | less -R
+	# Delete merged branches
+	cleanup = !sh -c 'git remote prune origin && git branch --merged | grep -Ev \"\\*|^\\s*master$\" | xargs -n 1 git branch -d'
+	finish = "!git checkout master && git pull && git cleanup"
+
+	# List commits with branching history ASCII art
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	# List commits in short form, with colors and branch/tag annotations
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	# List commits showing changed files
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	# Show the history of a file, with diffs
+	fl = log --patch
+	# List oneline commits showing dates
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	# List oneline commits showing relative dates
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	# Show modified files in last commit:
+	dl = "!git ll -1"
+	# Show a diff last commit:
+	dlc = diff --cached HEAD^
+	# Show content (full diff) of a commit given a revision:
+	dr  = "!f() { git diff "$1"^.."$1"; }; f"
+	lc  = "!f() { git ll "$1"^.."$1"; }; f"
+	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+	# Find a file path in codebase:
+	f = "!git ls-files | grep -i"
+	# List all aliases!
+	la = "!git config -l | grep alias | cut -c 7-"
+	# Reset aliases
+	r = reset
+	r1 = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+	# Stash aliases
+	sl = stash list
+	sa = stash apply
+	ss = stash save
+	sp = stash pop
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
+[svn]
+	noignoreexternals = true
+[branch]
+	autosetupmerge = true
+
+
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[pivotal]
+	api-token = bb4cca121eab81e3facdf35be677aa63
+	full-name = David Eyk
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = current
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+# [diff]
+# 	tool = diffmerge
+[commit]
+	template = /Users/deyk/.stCommitMsg
+[pull]
+	ff = only
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[init]
+	defaultBranch = master

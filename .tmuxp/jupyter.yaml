@@ -1,0 +1,12 @@
+session_name: jupyter
+start_directory: ~/code/jupyter
+windows:
+  - window_name: server
+    window_index: 0
+    panes:
+      - cd . && jupyter notebook
+  - window_name: bash
+    window_index: 2
+    focus: true
+    panes:
+      - cd .

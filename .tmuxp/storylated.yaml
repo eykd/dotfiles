@@ -1,5 +1,5 @@
-session_name: kardashev
-start_directory: ~/code/py/kardashev
+session_name: storylated
+start_directory: ~/code/py/storylated
 windows:
   - window_name: bash
     window_index: 2
@@ -9,4 +9,4 @@ windows:
   - window_name: ipython
     window_index: 8
     panes:
-      - cd . && ipython
+      - cd . && ./manage.py shell_plus

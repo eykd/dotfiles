@@ -1,6 +1,10 @@
-session_name: kardashev
-start_directory: ~/code/py/kardashev
+session_name: convoke
+start_directory: ~/code/py/convoke
 windows:
+  - window_name: tests
+    window_index: 1
+    panes:
+      - cd . && ./watchtests.sh
   - window_name: bash
     window_index: 2
     focus: true

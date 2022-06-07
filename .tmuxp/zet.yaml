@@ -1,14 +1,14 @@
-session_name: crashtestgardens
-start_directory: "~/Dropbox/to David/Crash Test Gardens/jig-crashtestgardens.us/"
+session_name: zet
+start_directory: ~/code/py/zet
 windows:
   - window_name: server
     window_index: 0
     panes:
-      - cd . && jiggity serve
-  - window_name: bash
+      - cd . && uvicorn  --reload --port 5042 zet:app
+  - window_name: tests
     window_index: 1
     panes:
-      - cd .
+      - cd . && ./watchtests.sh
   - window_name: bash
     window_index: 2
     focus: true

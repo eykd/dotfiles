@@ -1,0 +1,8 @@
+session_name: tableheart
+start_directory: ~/code/py/tableheart
+windows:
+  - window_name: tableheart
+    window_index: 2
+    focus: true
+    panes:
+      - cd .

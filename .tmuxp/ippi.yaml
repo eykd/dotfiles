@@ -1,0 +1,40 @@
+session_name: ippi
+start_directory: ~/code/py/onemrsippi/
+windows:
+  - window_name: mrs-server
+    window_index: 0
+    panes:
+      - cd . && ./manage.py runserver_plus 8000
+  - window_name: mrs-tests
+    window_index: 1
+    panes:
+      - cd . && ./watchtests.sh
+  - window_name: mrs-code
+    window_index: 2
+    focus: true
+    panes:
+      - cd .
+  - window_name: mrs-code
+    window_index: 3
+    panes:
+      - cd .
+  - window_name: mrs-static
+    window_index: 4
+    panes:
+      - cd . && ./watchstatic.sh
+  - window_name: mrs-salt
+    window_index: 5
+    panes:
+      - cd ~/code/salt/mrsippi-salt/
+  - window_name: mrs-salt
+    window_index: 6
+    panes:
+      - cd ~/code/salt/mrsippi-salt/
+  - window_name: ipython
+    window_index: 8
+    panes:
+      - cd . && ./manage.py shell_plus
+  - window_name: celery
+    window_index: 9
+    panes:
+      - cd . && celery -A mrsippi.taskapp worker
