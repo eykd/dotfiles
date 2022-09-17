@@ -120,26 +120,6 @@ export EDITOR=emacsclient
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias fix-video='sudo killall VDCAssistant'
-alias fix-audio='sudo killall coreaudiod; sleep 1; sudo killall ControlStrip'
-alias fix-hangouts='fix-video; fix-audio'
-
-has_virtualenv() {
-    if [ -e bin/activate ]; then
-        source bin/activate
-    fi;
-    if [ -e venv/bin/activate ]; then
-        source venv/bin/activate
-    fi;
-}
-export has_virtualenv
-
-function cd_extended () {
-    builtin cd "$@" && has_virtualenv;
-}
-alias cd='cd_extended $@'
-
-
 alias ring='say Ring.'
 alias beep='say Beep.'
 alias _done='say Done.'
